@@ -39,13 +39,16 @@
         <div class="kpi-card">
           <div class="value">127</div>
           <div>kW térmicos recuperados</div>
-          <div class="chart-container" style="height: 70px; margin-top: 0.5rem;">
+          <div class="chart-container chart-container--kpi-lg" style="height: 95px; margin-top: 0.5rem;">
             <canvas id="gauge-kw-termicos"></canvas>
           </div>
         </div>
         <div class="kpi-card">
           <div class="value">63</div>
           <div>kW frío producido</div>
+          <div class="chart-container chart-container--kpi-lg" style="height: 95px; margin-top: 0.5rem;">
+            <canvas id="gauge-kw-frio"></canvas>
+          </div>
         </div>
         <div class="kpi-card">
           <div class="value">0.49</div>
@@ -142,8 +145,8 @@
       var dark = '#16232A';
       var gray = '#ebebeb';
 
-      // Gauge kW térmicos (doughnut 0-200)
-      function gaugeChart(id, value, max, label) {
+      // Gauges: semicircle (color param) o donut completo para COP
+      function gaugeChart(id, value, max, color) {
         var pct = Math.min(value / max, 1);
         var ctx = document.getElementById(id);
         if (!ctx) return;
@@ -152,7 +155,7 @@
           data: {
             datasets: [{
               data: [pct * 100, 100 - pct * 100],
-              backgroundColor: [orange, gray],
+              backgroundColor: [color, gray],
               borderWidth: 0
             }]
           },
@@ -166,8 +169,32 @@
           }
         });
       }
-      gaugeChart('gauge-kw-termicos', 127, 200, 'kW');
-      gaugeChart('gauge-cop', 0.49 * 100, 70, 'COP'); // 0.5 = 50 of 70
+      gaugeChart('gauge-kw-termicos', 127, 200, orange);
+      gaugeChart('gauge-kw-frio', 63, 100, teal);
+      // COP: donut completo (360°) para que se distinga
+      (function() {
+        var copCtx = document.getElementById('gauge-cop');
+        if (!copCtx) return;
+        var copPct = Math.min(0.49 / 0.7, 1);
+        new Chart(copCtx, {
+          type: 'doughnut',
+          data: {
+            datasets: [{
+              data: [copPct * 100, 100 - copPct * 100],
+              backgroundColor: [orange, gray],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            circumference: 360,
+            rotation: 270,
+            cutout: '65%',
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: { legend: { display: false } }
+          }
+        });
+      })();
 
       // Donut disponibilidad
       var donutCtx = document.getElementById('donut-disponibilidad');
