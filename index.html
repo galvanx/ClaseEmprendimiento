@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="assets/L1.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="landing">
   <header class="site-header">
     <a href="index.html" class="site-logo">
       <img src="assets/L2.png" alt="NexTherm Thermal Recovery">
@@ -25,47 +25,87 @@
   </header>
 
   <main>
-    <section>
-      <h1>NexTherm – Thermal Recovery</h1>
-      <p>Prototipo de monitoreo para recuperación térmica y generación de frío sostenible (Arca Continental).</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <img src="assets/L2.png" alt="NexTherm Thermal Recovery" class="hero-logo">
+        <h1 class="hero-title">NexTherm</h1>
+        <p class="hero-subtitle">Thermal Recovery</p>
+        <p class="hero-tagline">Prototipo de monitoreo para recuperación térmica y generación de frío sostenible en Arca Continental.</p>
+      </div>
     </section>
 
-    <section>
-      <h2>Caso y propuesta</h2>
-      <p>Arca Continental genera calor residual en calderas, compresores y procesos térmicos que normalmente se pierde. En paralelo, las plantas consumen electricidad para enfriamiento industrial (chillers, HVAC, agua helada, cuartos fríos). La propuesta es implementar, de forma escalable en plantas seleccionadas en México, un sistema de enfriamiento por adsorción de silicagel que transforme ese calor en frío útil, reduciendo consumo eléctrico y emisiones asociadas.</p>
-
-      <h3>Objetivos del proyecto</h3>
-      <ul>
-        <li>Recuperar calor residual disponible en plantas seleccionadas.</li>
-        <li>Convertir calor residual en capacidad de enfriamiento (kW/TR) mediante sistemas de adsorción.</li>
-        <li>Reducir el consumo eléctrico asociado a enfriamiento por compresión mecánica.</li>
-        <li>Disminuir emisiones indirectas de GEI (Scope 2) y medir kWh evitados, tCO₂e evitadas, TR instaladas y disponibilidad.</li>
-      </ul>
-
-      <h3>Justificación y bonos verdes</h3>
-      <p>El proyecto se enmarca en eficiencia energética industrial y recuperación de calor residual, mejorando el aprovechamiento exergético y reduciendo la intensidad energética. Bajo marcos como los Green Bond Principles (ICMA) y guías mexicanas de Bonos Verdes, clasifica en Eficiencia Energética con beneficios medibles, verificables y reportables (ahorro energético, reducción de emisiones, kWh/unidad producida).</p>
-
-      <h3>Datos clave</h3>
-      <ul>
-        <li>Consumo energético anual estimado Arca México: ~530 GWh/año.</li>
-        <li>12 plantas consideradas (Norte del país, ~55% del volumen nacional).</li>
-        <li>Energía térmica recuperable por planta: ~4.74 GWh/año (108–162 kW térmicos); chiller de adsorción 50–100 kW, COP de diseño ~0.5.</li>
-        <li>CAPEX por planta: 1.1 – 1.7 MUSD; programa completo 12 plantas: 13.9 – 21.1 MUSD.</li>
-      </ul>
+    <!-- Caso y propuesta -->
+    <section class="landing-section landing-section--light">
+      <div class="landing-wrap">
+        <h2 class="landing-heading">Caso y propuesta</h2>
+        <p class="landing-lead">Arca Continental genera calor residual en calderas, compresores y procesos térmicos que normalmente se pierde. En paralelo, las plantas consumen electricidad para enfriamiento industrial (chillers, HVAC, agua helada, cuartos fríos). La propuesta es implementar, de forma escalable en plantas seleccionadas en México, un sistema de enfriamiento por adsorción de silicagel que transforme ese calor en frío útil, reduciendo consumo eléctrico y emisiones asociadas.</p>
+      </div>
     </section>
 
-    <section>
-      <h2>Acceso a dashboards</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Dashboard Técnico</h3>
-          <p>Para ingenieros y operadores: desempeño del sistema, eficiencia térmica, COP, disponibilidad, balance energético, circuito hidráulico y alarmas.</p>
-          <a href="dashboard-tecnico.html" class="btn">Abrir Dashboard Técnico</a>
+    <!-- Objetivos -->
+    <section class="landing-section">
+      <div class="landing-wrap">
+        <h2 class="landing-heading">Objetivos del proyecto</h2>
+        <ul class="objectives-list">
+          <li>Recuperar calor residual disponible en plantas seleccionadas.</li>
+          <li>Convertir calor residual en capacidad de enfriamiento (kW/TR) mediante sistemas de adsorción.</li>
+          <li>Reducir el consumo eléctrico asociado a enfriamiento por compresión mecánica.</li>
+          <li>Disminuir emisiones indirectas de GEI (Scope 2) y medir kWh evitados, tCO₂e evitadas, TR instaladas y disponibilidad.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Justificación -->
+    <section class="landing-section landing-section--alt">
+      <div class="landing-wrap">
+        <h2 class="landing-heading">Justificación y bonos verdes</h2>
+        <p class="landing-lead">El proyecto se enmarca en eficiencia energética industrial y recuperación de calor residual, mejorando el aprovechamiento exergético y reduciendo la intensidad energética. Bajo marcos como los Green Bond Principles (ICMA) y guías mexicanas de Bonos Verdes, clasifica en Eficiencia Energética con beneficios medibles, verificables y reportables.</p>
+      </div>
+    </section>
+
+    <!-- Datos clave -->
+    <section class="landing-section">
+      <div class="landing-wrap">
+        <h2 class="landing-heading">Datos clave</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value">~530 GWh/año</span>
+            <span class="stat-label">Consumo energético estimado Arca México</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">12 plantas</span>
+            <span class="stat-label">Norte del país, ~55% del volumen nacional</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">4.74 GWh/año</span>
+            <span class="stat-label">Energía térmica recuperable por planta; chiller 50–100 kW, COP ~0.5</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">13.9 – 21.1 MUSD</span>
+            <span class="stat-label">Programa completo 12 plantas</span>
+          </div>
         </div>
-        <div class="card">
-          <h3>Dashboard Ejecutivo</h3>
-          <p>Para dirección y ESG: ahorro, CO₂ evitado, impacto económico, programa 12 plantas y cumplimiento bono verde.</p>
-          <a href="dashboard-ejecutivo.html" class="btn">Abrir Dashboard Ejecutivo</a>
+      </div>
+    </section>
+
+    <!-- Dashboards CTA -->
+    <section class="landing-section landing-section--cta">
+      <div class="landing-wrap">
+        <h2 class="landing-heading">Acceso a dashboards</h2>
+        <p class="landing-cta-text">Explora el monitoreo técnico y el impacto ejecutivo y ESG.</p>
+        <div class="cards cards--landing">
+          <div class="card card--dashboard">
+            <h3 class="card-title">Dashboard Técnico</h3>
+            <p class="card-desc">Para ingenieros y operadores: desempeño del sistema, eficiencia térmica, COP, disponibilidad, balance energético, circuito hidráulico y alarmas.</p>
+            <a href="dashboard-tecnico.html" class="btn btn--block">Abrir Dashboard Técnico</a>
+          </div>
+          <div class="card card--dashboard">
+            <h3 class="card-title">Dashboard Ejecutivo</h3>
+            <p class="card-desc">Para dirección y ESG: ahorro, CO₂ evitado, impacto económico, programa 12 plantas y cumplimiento bono verde.</p>
+            <a href="dashboard-ejecutivo.html" class="btn btn--block">Abrir Dashboard Ejecutivo</a>
+          </div>
         </div>
       </div>
     </section>
