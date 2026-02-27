@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Ejecutivo | NexTherm</title>
+  <link rel="icon" type="image/png" href="assets/L1.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-logo">
+      <img src="assets/L2.png" alt="NexTherm Thermal Recovery">
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="dashboard-tecnico.html">Dashboard Técnico</a></li>
+        <li><a href="dashboard-ejecutivo.html">Dashboard Ejecutivo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="dashboard-header">
+      <h1>Dashboard Ejecutivo</h1>
+      <p>Business / Dirección / ESG – Ahorro, CO₂, bono verde e impacto 12 plantas.</p>
+    </div>
+
+    <!-- 1. Impacto energético anual -->
+    <section>
+      <h2>Impacto energético anual</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="value">1.24 GWh</div>
+          <div>kWh eléctricos evitados</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">18%</div>
+          <div>Reducción consumo enfriamiento</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">25.2 GWh</div>
+          <div>GWh térmicos valorizados (12 plantas)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">485 tCO₂e</div>
+          <div>tCO₂e evitadas (Scope 2)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Impacto económico -->
+    <section>
+      <h2>Impacto económico</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="value">186 kUSD</div>
+          <div>Ahorro anual (USD)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">6.2 años</div>
+          <div>Payback estimado</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">12%</div>
+          <div>IRR proyecto</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">1.4 MUSD</div>
+          <div>CAPEX invertido (por planta)</div>
+        </div>
+      </div>
+      <div class="chart-wrapper">
+        <h3>Flujo económico (waterfall)</h3>
+        <div class="chart-container">
+          <canvas id="chart-waterfall"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Intensidad energética -->
+    <section class="chart-wrapper">
+      <h2>Intensidad energética (kWh / litro)</h2>
+      <div class="chart-container">
+        <canvas id="chart-intensidad"></canvas>
+      </div>
+    </section>
+
+    <!-- 4. Reducción CO₂ (ESG) -->
+    <section class="chart-wrapper">
+      <h2>Reducción CO₂ (ESG)</h2>
+      <div class="chart-container">
+        <canvas id="chart-co2"></canvas>
+      </div>
+    </section>
+
+    <!-- 5. Programa 12 plantas -->
+    <section>
+      <h2>Programa 12 plantas</h2>
+      <div class="chart-wrapper" style="margin-bottom: 1rem;">
+        <p><strong>Mapa México – Estado por planta:</strong> Verde = implementado, Amarillo = piloto, Azul = en ingeniería.</p>
+        <div class="mapa-placeholder">
+          <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa México 12 plantas">
+            <path d="M100 20 L120 40 L115 80 L130 100 L125 140 L110 160 L95 180 L100 220 L85 260 L75 250 L70 200 L80 160 L90 120 L95 60 Z" fill="var(--teal)" opacity="0.3" stroke="var(--teal)" stroke-width="1"/>
+            <circle cx="95" cy="55" r="6" fill="#22c55e" aria-label="Norte implementado"/>
+            <circle cx="105" cy="95" r="6" fill="#eab308" aria-label="Piloto"/>
+            <circle cx="100" cy="135" r="6" fill="#22c55e" aria-label="Implementado"/>
+            <circle cx="92" cy="175" r="6" fill="#3b82f6" aria-label="En ingeniería"/>
+            <circle cx="88" cy="215" r="6" fill="#3b82f6" aria-label="En ingeniería"/>
+            <text x="100" y="275" text-anchor="middle" font-size="10" fill="var(--dark)">México (12 plantas)</text>
+          </svg>
+        </div>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          <span style="display: inline-block; width: 12px; height: 12px; background: #22c55e; border-radius: 2px; vertical-align: middle;"></span> Implementado &nbsp;
+          <span style="display: inline-block; width: 12px; height: 12px; background: #eab308; border-radius: 2px; vertical-align: middle;"></span> Piloto &nbsp;
+          <span style="display: inline-block; width: 12px; height: 12px; background: #3b82f6; border-radius: 2px; vertical-align: middle;"></span> En ingeniería
+        </p>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="value">13.9 – 21.1 MUSD</div>
+          <div>CAPEX total (12 plantas)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">1.1 – 1.8 MUSD</div>
+          <div>OPEX financiado (5 años)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">~2.2 GWh</div>
+          <div>Impacto consolidado eléctrico evitado/año</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Cumplimiento Bono Verde -->
+    <section>
+      <h2>Cumplimiento Bono Verde</h2>
+      <div class="chart-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicador</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>kWh medibles</td>
+              <td>✅ Cumplido</td>
+            </tr>
+            <tr>
+              <td>MRV implementado</td>
+              <td>✅ Cumplido</td>
+            </tr>
+            <tr>
+              <td>ISO 50001 alineado</td>
+              <td>✅ Cumplido</td>
+            </tr>
+            <tr>
+              <td>Verificación externa</td>
+              <td>⏳ En proceso</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Equipo:</strong> Estefanía Rico, Luisa Contreras, Daphne Juarez, Jorge Galván, Valeria Sada Bello, Crisia Pineda. Emprendimiento Tecnológico – Campus Monterrey.</p>
+  </footer>
+
+  <script>
+    (function() {
+      var orange = '#FF5B04';
+      var teal = '#075056';
+      var dark = '#16232A';
+      var gray = '#ebebeb';
+
+      // Waterfall: CAPEX, Ahorros, OPEX, Flujo neto (barras apiladas/agrupadas)
+      var wfCtx = document.getElementById('chart-waterfall');
+      if (wfCtx) {
+        new Chart(wfCtx, {
+          type: 'bar',
+          data: {
+            labels: ['CAPEX', 'Ahorros energéticos', 'OPEX', 'Flujo neto'],
+            datasets: [{
+              label: 'kUSD',
+              data: [-1400, 186, -30, -1244],
+              backgroundColor: [dark, teal, orange, gray]
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { beginAtZero: false, title: { display: true, text: 'kUSD' } }
+            }
+          }
+        });
+      }
+
+      // Intensidad energética: línea antes/después
+      var intCtx = document.getElementById('chart-intensidad');
+      if (intCtx) {
+        new Chart(intCtx, {
+          type: 'line',
+          data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            datasets: [
+              { label: 'kWh/L antes', data: [0.24, 0.24, 0.235, 0.24, 0.245, 0.24, 0.24, 0.24, 0.235, 0.24, 0.24, 0.24], borderColor: gray, backgroundColor: 'transparent', fill: false, tension: 0.2 },
+              { label: 'kWh/L después', data: [0.24, 0.22, 0.21, 0.20, 0.20, 0.195, 0.195, 0.20, 0.20, 0.198, 0.20, 0.198], borderColor: teal, backgroundColor: 'transparent', fill: false, tension: 0.2 }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top' } },
+            scales: { y: { min: 0.15, max: 0.26 } }
+          }
+        });
+      }
+
+      // Reducción CO₂: barras comparativas
+      var co2Ctx = document.getElementById('chart-co2');
+      if (co2Ctx) {
+        new Chart(co2Ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Scope 2 antes', 'Scope 2 después', 'tCO₂e evitadas acum.', '% avance meta'],
+            datasets: [{
+              label: 'Valor',
+              data: [2650, 2165, 485, 18],
+              backgroundColor: [dark, teal, orange, gray]
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { beginAtZero: true },
+              x: {}
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
